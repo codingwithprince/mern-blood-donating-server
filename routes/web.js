@@ -8,6 +8,8 @@ router.get('/info/:id', mainController.singleInfo)
 router.post('/register', mainController.registerDonator)
 router.get('/update/:id', mainController.getDonatorForUpdate)
 router.put('/update/:id', mainController.updateDonator)
+router.delete('/delete/:id', mainController.deleteDonator)
+
 
 
 

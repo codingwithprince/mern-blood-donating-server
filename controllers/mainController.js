@@ -41,7 +41,15 @@ class mainController{
         try {
             await donatorModel.findByIdAndUpdate(req.params.id, req.body)
             res.send('Done')
-            console.log('Updated');
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    static deleteDonator = async (req, res) => {
+        try {
+            await donatorModel.findByIdAndDelete(req.params.id)
+            res.send('Deleted')
         } catch (error) {
             console.log(error);
         }
