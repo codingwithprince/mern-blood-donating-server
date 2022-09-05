@@ -1,3 +1,5 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import express from 'express'
 import router from './routes/web.js';
 import connectDataBase from './db/connectDataBase.js';
@@ -5,8 +7,8 @@ import bodyParser from 'body-parser';
 import cors from 'cors'
 
 const app = express()
-const PORT = process.env.PORT || 8080;
-const DATABASE_URL = "mongodb+srv://codingwithprince:Princ34hmeD@cluster0.om7jc2g.mongodb.net/?retryWrites=true&w=majority"
+const port = process.env.PORT || 8080;
+const DATABASE_URL = process.env.DATABASE_URL;
 
 app.use(cors())
 
@@ -20,8 +22,8 @@ app.use("/", router)
 connectDataBase(DATABASE_URL)
 
 
-app.listen(PORT, ()=> {
-    console.log(`Server is running at http://localhost:${PORT}`);
+app.listen(port, ()=> {
+    console.log(`Server is running at http://localhost:${port}`);
 })
 
 
