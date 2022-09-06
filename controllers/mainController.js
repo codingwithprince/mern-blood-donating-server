@@ -1,4 +1,7 @@
 import donatorModel from "../models/donatorsModel.js";
+import userModel from '../models/userModel.js'
+import bcrypt from 'bcrypt'
+
 class mainController{
     static getAllData = async (req, res) => {
         try {
@@ -50,6 +53,28 @@ class mainController{
         try {
             await donatorModel.findByIdAndDelete(req.params.id)
             res.send('Deleted')
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    // static createUser = async(req, res) => {
+    //     try {
+    //         const userDoc = userModel({
+    //             email: 'redrosemission@gmail.com',
+    //             password: await bcrypt.hash('redrosemission12', 10)
+    //         })
+    //         await userDoc.save()
+    //         res.send('Created')
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
+
+    static getUser = async(req, res) => {
+        try {
+            const result = await userModel.find()
+            res.send(result) 
         } catch (error) {
             console.log(error);
         }

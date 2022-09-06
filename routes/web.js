@@ -9,6 +9,11 @@ router.post('/register', mainController.registerDonator)
 router.get('/update/:id', mainController.getDonatorForUpdate)
 router.put('/update/:id', mainController.updateDonator)
 router.delete('/delete/:id', mainController.deleteDonator)
+// router.post('/user', mainController.createUser)
+router.get('/user', mainController.getUser)
+
+
+
 
 
 
